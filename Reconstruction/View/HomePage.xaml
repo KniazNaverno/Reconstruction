@@ -1,0 +1,31 @@
+﻿<Window x:Class="Reconstruction.View.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reconstruction.View"
+        mc:Ignorable="d"
+        Title="HomePage" Height="450" Width="550" Name="ThisWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.ColumnSpan="2">
+            <Button Command="{Binding OpenWindow}" CommandParameter="{Binding ElementName=ThisWindow}" VerticalAlignment="Top" Height="25" Width="150" Margin="10" Content="Профиль"/>                                      
+            <Button Command="{Binding OpenWindow2}" CommandParameter="{Binding ElementName=ThisWindow}" VerticalAlignment="Top" Height="25" Width="150" Margin="10" Content="Список Задач"/>
+            <Button Command="{Binding OpenWindow3}" CommandParameter="{Binding ElementName=ThisWindow}" VerticalAlignment="Top" Height="25" Width="150" Margin="10" Content="История выполнения"/>
+        </StackPanel>
+        <DataGrid HeadersVisibility="None" Name ="UserList" ItemsSource="{Binding Users}" AutoGenerateColumns="False" Grid.Row="3" ColumnWidth="*" Grid.Column="1" >
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Surname}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
